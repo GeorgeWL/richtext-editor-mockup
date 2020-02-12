@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useRouteMatch } from 'react-router-dom';
-import TextEditor from './Editor';
+import TextEditor from './editor/Editor';
 function parseUrlHeader(url: string): string {
   const isPost = /\/posts(\/{1}.*)*/.test(url);
   const isAlert = /\/alerts(\/{1}.*)*/.test(url);

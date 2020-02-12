@@ -3,10 +3,12 @@
 import * as React from 'react';
 import './editor.scss';
 import { useParams } from 'react-router-dom';
-import { withReact, Slate, Editable, useSlate } from 'slate-react';
+import { withReact, Slate, Editable } from 'slate-react';
 import { createEditor, Transforms, Editor } from 'slate';
 import classNames from 'class-names';
 import isHotkey from 'is-hotkey';
+import MarkButton from './MarkButton';
+import BlockButton from './BlockButton';
 const HOTKEYS = {
   'mod+b': 'bold',
   'mod+i': 'italic',
@@ -80,7 +82,7 @@ const CodeElement = props => {
   );
 };
 
-const toggleBlock = (editor, format) => {
+export const toggleBlock = (editor, format) => {
   const isActive = isBlockActive(editor, format);
   const isList = LIST_TYPES.includes(format);
 
@@ -99,7 +101,7 @@ const toggleBlock = (editor, format) => {
   }
 };
 
-const toggleMark = (editor, format) => {
+export const toggleMark = (editor, format) => {
   const isActive = isMarkActive(editor, format);
 
   if (isActive) {
@@ -109,7 +111,7 @@ const toggleMark = (editor, format) => {
   }
 };
 
-const isBlockActive = (editor, format) => {
+export const isBlockActive = (editor, format) => {
   const [match] = Editor.nodes(editor, {
     match: n => n.type === format
   });
@@ -117,7 +119,7 @@ const isBlockActive = (editor, format) => {
   return !!match;
 };
 
-const isMarkActive = (editor, format) => {
+export const isMarkActive = (editor, format) => {
   const marks = Editor.marks(editor);
   return marks ? marks[format] === true : false;
 };
@@ -167,45 +169,6 @@ const Leaf = ({ attributes, children, leaf }) => {
   }
 
   return <span {...attributes}>{children}</span>;
-};
-
-const Icon = ({ name }) => <>{name}</>;
-const Button = ({ children, onClick, active }) => (
-  <button
-    onClick={onClick}
-    className={classNames('editor__button', active && 'editor__button-active')}
-  >
-    {children}
-  </button>
-);
-const BlockButton = ({ format, icon }) => {
-  const editor = useSlate();
-  return (
-    <Button
-      active={isBlockActive(editor, format)}
-      onClick={event => {
-        event.preventDefault();
-        toggleBlock(editor, format);
-      }}
-    >
-      <Icon name={icon}></Icon>
-    </Button>
-  );
-};
-
-const MarkButton = ({ format, icon }) => {
-  const editor = useSlate();
-  return (
-    <Button
-      active={isMarkActive(editor, format)}
-      onClick={event => {
-        event.preventDefault();
-        toggleMark(editor, format);
-      }}
-    >
-      <Icon name={icon}></Icon>
-    </Button>
-  );
 };
 
 const initialValue = [
