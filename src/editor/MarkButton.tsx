@@ -5,9 +5,9 @@ import Button from '../Button';
 import Icon from '../Icon';
 interface IProps {
   format: string;
-  icon: string;
+  icon?: string;
 }
-const MarkButton = ({ format, icon }: IProps) => {
+const MarkButton = ({ format, icon = '' }: IProps) => {
   const editor = useSlate();
   return (
     <Button
@@ -16,7 +16,8 @@ const MarkButton = ({ format, icon }: IProps) => {
         toggleMark(editor, format);
       }}
     >
-      <Icon name={icon}></Icon>
+      <Icon name={icon} />
+      <strong>{format}</strong>
     </Button>
   );
 };
