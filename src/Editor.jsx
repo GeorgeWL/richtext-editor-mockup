@@ -21,6 +21,8 @@ const TextEditor = () => {
   const [value, setValue] = React.useState(initialValue);
   const renderElement = React.useCallback(props => <Element {...props} />, []);
   const renderLeaf = React.useCallback(props => <Leaf {...props} />, []);
+  const content = JSON.stringify(value);
+  localStorage.setItem('content', content);
   return (
     <div className="editor">
       <h2>{id && <>post id: {id}</>}</h2>
@@ -51,9 +53,21 @@ const TextEditor = () => {
                 toggleMark(editor, mark);
               }
             }
+            const content = JSON.stringify(value);
+            localStorage.setItem('content', content);
           }}
         />
       </Slate>
+      <button
+        className="editor__button"
+        onClick={event => {
+          event.preventDefault();
+          const content = localStorage.getItem('content');
+          console.log('content', JSON.parse(content));
+        }}
+      >
+        Save
+      </button>
     </div>
   );
 };
