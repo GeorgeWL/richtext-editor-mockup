@@ -9,6 +9,7 @@ import classNames from 'class-names';
 import isHotkey from 'is-hotkey';
 import MarkButton from './MarkButton';
 import BlockButton from './BlockButton';
+import Button from '../Button';
 const HOTKEYS = {
   'mod+b': 'bold',
   'mod+i': 'italic',
@@ -60,7 +61,7 @@ const TextEditor = () => {
           }}
         />
       </Slate>
-      <button
+      <Button
         className="editor__button"
         onClick={event => {
           event.preventDefault();
@@ -69,7 +70,7 @@ const TextEditor = () => {
         }}
       >
         Save
-      </button>
+      </Button>
     </div>
   );
 };
