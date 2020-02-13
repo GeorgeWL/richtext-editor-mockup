@@ -131,8 +131,6 @@ const Element = ({ attributes, children, element }) => {
           {children}
         </a>
       );
-    case 'read-more':
-      return <hr {...attributes} className="editor__readmore" />;
     default:
       return <p {...attributes}>{children}</p>;
   }
@@ -183,7 +181,6 @@ const initialValue = [
       }
     ]
   },
-  { type: 'read-more', children: [{ text: '' }] },
   {
     type: 'block-quote',
     children: [{ text: 'A wise quote.' }]

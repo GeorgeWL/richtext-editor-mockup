@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.scss';
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
 import RichTextEditor from './components/editor/RichTextEditor';
+import AlertEditor from './components/editor/AlertEditor';
+import TagListInput from './components/TagListInput';
 const App = () => {
   return (
     <Router>
@@ -34,12 +36,19 @@ const App = () => {
           <Switch>
             <Route exact path="/">
               <h1>Edit or Create Posts and Alerts</h1>
+              <TagListInput />
             </Route>
             <Route exact path="/posts">
-              <RichTextEditor />
+              <>
+                <h1>Create Post</h1>
+                <RichTextEditor />
+              </>
             </Route>
             <Route exact path="/alerts">
-              <AlertEditor />
+              <>
+                <h1>Create Alert</h1>
+                <AlertEditor onSave={data => console.warn('onSave', data)} />
+              </>
             </Route>
             <Route path="/posts/:id">
               <>placeholder posts id</>

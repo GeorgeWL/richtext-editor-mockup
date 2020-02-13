@@ -3,12 +3,16 @@ import classNames from 'class-names';
 import './button.scss';
 interface IProps {
   children: any;
-  onClick: () => void;
-  active: boolean;
+  onClick: (val?: any) => void;
+  active?: boolean;
+  loading?: boolean;
   className?: string;
 }
-const Button = ({ children, onClick, active, className }: IProps) => (
-  <button onClick={onClick} className={classNames(className, 'btn', active && 'btn-active')}>
+const Button = ({ children, onClick, active = false, loading = false, className }: IProps) => (
+  <button
+    onClick={onClick}
+    className={classNames(className, 'btn', active && 'btn-active', loading && 'btn-loading')}
+  >
     {children}
   </button>
 );

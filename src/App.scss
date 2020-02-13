@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-body {
+body,
+html,
+textarea,
+input {
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -8,7 +11,7 @@ body {
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
 }
 

@@ -16,7 +16,8 @@ const BlockButton = ({ format, icon }: IProps) => {
         toggleBlock(editor, format);
       }}
     >
-      <Icon name={icon}></Icon>
+      <Icon name={icon} />
+      <strong>{format}</strong>
     </Button>
   );
 };
