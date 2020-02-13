@@ -14,6 +14,7 @@ const RichTextToolBar = () => (
     <BlockButton format="block-quote" icon="format_quote" />
     <BlockButton format="numbered-list" icon="format_list_numbered" />
     <BlockButton format="bulleted-list" icon="format_list_bulleted" />
+    <BlockButton format="read-more" icon="read-more" />
   </Toolbar>
 );
 export default RichTextToolBar;

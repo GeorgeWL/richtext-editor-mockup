@@ -16,7 +16,7 @@ const HOTKEYS = {
 };
 const LIST_TYPES = ['numbered-list', 'bulleted-list'];
 
-const TextEditor = () => {
+const RichTextEditor = () => {
   const { id } = useParams();
   const editor = React.useMemo(() => withReact(createEditor()), []);
   const [value, setValue] = React.useState(initialValue);
@@ -58,7 +58,7 @@ const TextEditor = () => {
     </div>
   );
 };
-export default TextEditor;
+export default RichTextEditor;
 const CodeElement = props => {
   return (
     <pre {...props.attributes}>
@@ -131,6 +131,8 @@ const Element = ({ attributes, children, element }) => {
           {children}
         </a>
       );
+    case 'read-more':
+      return <hr {...attributes} className="editor__readmore" />;
     default:
       return <p {...attributes}>{children}</p>;
   }
@@ -181,6 +183,7 @@ const initialValue = [
       }
     ]
   },
+  { type: 'read-more', children: [{ text: '' }] },
   {
     type: 'block-quote',
     children: [{ text: 'A wise quote.' }]

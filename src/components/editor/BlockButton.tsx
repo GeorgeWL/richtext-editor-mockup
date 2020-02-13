@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../Button';
-import { toggleBlock, isBlockActive } from './Editor';
+import { toggleBlock, isBlockActive } from './RichTextEditor';
 import { useSlate } from 'slate-react';
 import Icon from '../Icon';
 interface IProps {

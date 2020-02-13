@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import { BrowserRouter as Router, Switch, Route, NavLink } from 'react-router-dom';
-import EditorCreate from './EditorCreate';
+import RichTextEditor from './components/editor/RichTextEditor';
 const App = () => {
   return (
     <Router>
@@ -35,8 +35,11 @@ const App = () => {
             <Route exact path="/">
               <h1>Edit or Create Posts and Alerts</h1>
             </Route>
-            <Route exact path={['/posts', '/alerts']}>
-              <EditorCreate />
+            <Route exact path="/posts">
+              <RichTextEditor />
+            </Route>
+            <Route exact path="/alerts">
+              <AlertEditor />
             </Route>
             <Route path="/posts/:id">
               <>placeholder posts id</>

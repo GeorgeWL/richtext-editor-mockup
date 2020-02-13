@@ -1,5 +1,5 @@
 import { useSlate } from 'slate-react';
-import { isMarkActive, toggleMark } from './Editor';
+import { isMarkActive, toggleMark } from './RichTextEditor';
 import React from 'react';
 import Button from '../Button';
 import Icon from '../Icon';

@@ -53,3 +53,16 @@ blockquote {
   margin-left: 12px;
   background-color: rgba(#f5f5f5, 0.5);
 }
+
+.editor__readmore {
+  width: 100%;
+  &:before {
+    content: 'read more';
+    width: 100%;
+    top: 0;
+    background-color: white;
+    text-align: center;
+    position: relative;
+    display: block;
+  }
+}
