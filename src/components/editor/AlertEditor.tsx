@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './alertEditor.scss';
 import Button from '../Button';
+import TagListInput from '../TagListInput';
 interface IProps {
   onSave: (data: object) => void;
 }
@@ -36,7 +37,15 @@ const AlertEditor = ({ onSave }: IProps) => {
         value={value}
         onChange={e => setValue(e.target.value)}
       />
-      {/* TAG Selection */}
+      <div>
+        <label htmlFor="tagList">
+          Set Tags{' '}
+          <small>
+            comma-seperated values e.g. <pre>tag, other tag, new tag</pre>
+          </small>
+        </label>
+        <TagListInput />
+      </div>
       <Button onClick={handleSave}>Save</Button>
     </div>
   );

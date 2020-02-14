@@ -4,7 +4,7 @@ import uuid from 'uuid';
 export function stringToTagObject(str: string): ITag {
   return {
     id: uuid(),
-    tag: str,
+    tag: str.trim(),
     color: randomColor()
   };
 }
