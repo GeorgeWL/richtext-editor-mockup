@@ -1,5 +1,5 @@
 import { ITag } from '../interfaces/tagInterfaces';
+import { stringToTagObject } from './stringToTagObject';
 
-export const stringToTagArray = (tag: string): ITag => {
-  return { tag, color: 'red' };
-};
+export const stringToTagArray = (str: string): ITag[] =>
+  str.split(',').map(val => stringToTagObject(val));
