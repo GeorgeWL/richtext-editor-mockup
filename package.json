@@ -20,7 +20,7 @@
 		"is-url": "^1.2.4",
 		"lint-staged": "^10.0.7",
 		"monaco-editor": "^0.20.0",
-		"node-sass": "^4.13.1",
+		"node-sass": "^7.0.0",
 		"prismjs": "^1.19.0",
 		"react": "^16.12.0",
 		"react-dom": "^16.12.0",
